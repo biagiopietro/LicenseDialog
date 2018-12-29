@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="bpDialog" prefHeight="500.0" prefWidth="555.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.biagiopietro.LicenseDialogController">
+    <top>
+        <JFXToolbar>
+            <leftItems>
+                <HBox prefHeight="40">
+                    <Label text="com.biagiopietro.License Open Source">
+                        <HBox.margin>
+                            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                        </HBox.margin></Label>
+                </HBox>
+            </leftItems>
+        </JFXToolbar>
+    </top>
+     <center>
+        <AnchorPane fx:id="anchorDialogContent" BorderPane.alignment="CENTER">
+            <children>
+                <ScrollPane fitToWidth="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <content>
+                        <VBox fx:id="vBoxLicenses" prefHeight="400" prefWidth="500" spacing="15" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+           <padding>
+              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+           </padding>
+        </AnchorPane>
+     </center>
+   <bottom>
+          <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+              <children>
+                  <JFXButton fx:id="btnCancel" maxWidth="80" onAction="#handleExitAction" style="-fx-background-color: darkgoldenrod" styleClass="custom-jfx-button-raised" text="Chiudi"/>
+              </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+          </HBox>
+   </bottom>
+</BorderPane>
