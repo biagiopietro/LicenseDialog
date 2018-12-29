@@ -11,7 +11,7 @@
         <JFXToolbar>
             <leftItems>
                 <HBox prefHeight="40">
-                    <Label text="com.biagiopietro.License Open Source">
+                    <Label fx:id="lblTitle" text="Open Source License">
                         <HBox.margin>
                             <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                         </HBox.margin></Label>

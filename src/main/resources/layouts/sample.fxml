@@ -1,0 +1,8 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane fx:controller="demo.MainController"
+            xmlns:fx="http://javafx.com/fxml">
+     <center>
+         <Button fx:id="btnShowLicenseDialog" text="Show license dialog" prefWidth="150" prefHeight="50"/>
+     </center>
+</BorderPane>

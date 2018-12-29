@@ -1,5 +1,6 @@
 package com.biagiopietro;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.application.HostServices;
 import javafx.application.Platform;
@@ -33,11 +34,15 @@ public class LicenseDialogController
 {
     public List<License> licenseList;
     public VBox vBoxLicenses;
+    public JFXButton btnCancel;
+    public Label lblTitle;
     // Service to handle url
     private HostServices hostServices;
     private ResourceBundle resourceBundle;
     private Scene scene;
-    private String title = null;
+    private String titleStage = null;
+    private String titleInsideDialog = null;
+    private String closeButtonText = null;
     private final ObjectProperty<Window> windowOwner = new SimpleObjectProperty<>();
 
     public LicenseDialogController()
@@ -66,8 +71,16 @@ public class LicenseDialogController
         this.licenseList = licenseList;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitleStage(String titleStage) {
+        this.titleStage = titleStage;
+    }
+
+    public void setTitleInsideDialog(String titleInsideDialog) {
+        this.titleInsideDialog = titleInsideDialog;
+    }
+
+    public void setCloseButtonText(String closeButtonText) {
+        this.closeButtonText = closeButtonText;
     }
 
     private void populateItems()
@@ -91,15 +104,15 @@ public class LicenseDialogController
             switch (license.getLicenseType())
             {
                 case APACHE20:
-                    reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/resources/files/apache2_license_summary")));
+                    reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/files/apache2_license_summary")));
                     libSummary = loadTextFiles(reader);
                     break;
                 case MIT:
-                    reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/resources/files/mit_license_summary")));
+                    reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/files/mit_license_summary")));
                     libSummary = loadTextFiles(reader);
                     break;
                 case LGPL3:
-                    reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/resources/files/lgpl3_license_summary")));
+                    reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/files/lgpl3_license_summary")));
                     libSummary = loadTextFiles(reader);
                     break;
             }
@@ -113,13 +126,23 @@ public class LicenseDialogController
             setAncor(hyperLinkLibUrl);
             setAncor(txtAreaLibLicense);
             vBoxLicenses.getChildren().addAll(lblLibName, hyperLinkLibUrl, txtAreaLibLicense);
-
         }
-    }
-
-    public void test()
-    {
-        System.out.println("ciao");
+        if (closeButtonText != null)
+        {
+            btnCancel.setText(closeButtonText);
+        }
+        else
+        {
+            btnCancel.setText("Close");
+        }
+        if (titleInsideDialog != null)
+        {
+            lblTitle.setText(titleInsideDialog);
+        }
+        else
+        {
+            lblTitle.setText("Libraries");
+        }
     }
 
     public boolean showLicenseDialog()
@@ -127,12 +150,13 @@ public class LicenseDialogController
         try
         {
             // Loading form.
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("resources/layouts/layout_license.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("layouts/layout_license.fxml"));
             BorderPane pane = loader.load();
-            pane.getStylesheets().add("/resources/css/style.css");
+            pane.getStylesheets().add("/css/style.css");
             Scene scene = new Scene(pane);
             final Stage stage = new Stage();
             LicenseDialogController licenseDialogController = loader.getController();
+            licenseList.add(new License("LicenseDialog", "https://github.com/biagiopietro/LicenseDialog", "Copyright © biagiopietro 201", License.licenseType.APACHE20));
             licenseDialogController.setLicenseList(licenseList);
             licenseDialogController.setHostServices(hostServices);
             licenseDialogController.populateItems();
@@ -142,14 +166,13 @@ public class LicenseDialogController
             scene.setFill(Color.TRANSPARENT);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            if (title != null)
+            if (titleStage != null)
             {
-                stage.setTitle(title);
+                stage.setTitle(titleStage);
             }
             else
             {
                 stage.setTitle("Open Source Libraries");
-
             }
             // Add event handler for active screen managing.
             stage.addEventHandler(WindowEvent.WINDOW_SHOWING, (WindowEvent window) ->
@@ -197,6 +220,7 @@ public class LicenseDialogController
         AnchorPane.setLeftAnchor(node, 0.0);
         AnchorPane.setRightAnchor(node, 0.0);
     }
+
     /**
      * Handles Exit button Action Event.
      * @brief Handles Exit button Action Event.
