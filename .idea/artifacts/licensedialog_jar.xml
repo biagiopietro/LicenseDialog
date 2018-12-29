@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="licensedialog:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/licensedialog_jar</output-path>
+    <root id="archive" name="licensedialog.jar">
+      <element id="module-output" name="licensedialog" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/8.0.4/jfoenix-8.0.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
