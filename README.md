@@ -65,7 +65,7 @@
 ## Issues
 Issues can be reported to the Issue tracker. If you can't fix them yourself, please be patiente as I can only work on them during my spare time and according to my priorities.
 
-##Contributions
+## Contributions
 Contributions are welcome, they can be submitted via Pull requests.
 
 ## Special Thanks
