@@ -156,6 +156,7 @@ public class LicenseDialogController
             Scene scene = new Scene(pane);
             final Stage stage = new Stage();
             LicenseDialogController licenseDialogController = loader.getController();
+            licenseList.add(new License("JFoenix", "https://github.com/jfoenixadmin/JFoenix", "Copyright © JFoenix 2014", License.licenseType.APACHE20));
             licenseList.add(new License("LicenseDialog", "https://github.com/biagiopietro/LicenseDialog", "Copyright © biagiopietro 2018", License.licenseType.APACHE20));
             licenseDialogController.setLicenseList(licenseList);
             licenseDialogController.setHostServices(hostServices);
