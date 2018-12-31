@@ -14,6 +14,7 @@
 
 
 **NOTE** : LicenseDialog requires **Java 1.8u60** and above.
+
 **NOTE** : You need to set JAVA_HOME environment variable to point to Java 1.8 directory.
 
 ##Screenshot
