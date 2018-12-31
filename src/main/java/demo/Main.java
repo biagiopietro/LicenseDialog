@@ -18,7 +18,6 @@ public class Main extends Application
         primaryStage.setTitle("License Dialog Demo");
         primaryStage.setScene(scene);
         MainController mainController = fxmlLoader.getController();
-//        mainController.setHostServices(getHostServices());
         mainController.setHostServices(getHostServices());
         primaryStage.setScene(scene);
         primaryStage.show();
