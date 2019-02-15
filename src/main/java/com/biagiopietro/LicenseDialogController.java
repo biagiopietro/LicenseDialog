@@ -115,6 +115,10 @@ public class LicenseDialogController
                     reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/files/lgpl3_license_summary")));
                     libSummary = loadTextFiles(reader);
                     break;
+                case BSD3:
+                    reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/files/bsd3_license_summary")));
+                    libSummary = loadTextFiles(reader);
+                    break;
             }
             JFXTextArea txtAreaLibLicense = new JFXTextArea(String.format("%s\n\n\n%s",license.getCopyright(), libSummary));
             txtAreaLibLicense.setMinWidth(500);

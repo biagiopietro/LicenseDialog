@@ -61,6 +61,7 @@
 * Apache 2.0
 * MIT
 * LGPL 3.0
+* BSD 3-Clause
 
 ## Issues
 Issues can be reported to the Issue tracker. If you can't fix them yourself, please be patiente as I can only work on them during my spare time and according to my priorities.

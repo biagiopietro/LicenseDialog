@@ -6,7 +6,8 @@ public class License
     {
         APACHE20,
         MIT,
-        LGPL3
+        LGPL3,
+        BSD3
     }
 
     private String libName;
